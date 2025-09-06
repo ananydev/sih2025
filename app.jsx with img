@@ -1,333 +1,174 @@
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+import { useState } from "react";
+import "./App.css";
 
-/* General */
-body, html, #root {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to bottom right, #364f89, #1e293b, #0c4a6e, #7c2d12);
-  color: white;
-  scroll-behavior: smooth;
-}
+export default function App() {
+  const [chatOpen, setChatOpen] = useState(false);
 
-.app {
-  width: 100%;
-  overflow-x: hidden;
-}
+  return (
+    <div className="app">
+      {/* Navbar */}
+      <nav className="navbar">
+        <div className="logo-container">
+          <img
+            src="https://img.icons8.com/?size=100&id=ErR2tuOLRaTc&format=png&color=000000"
+            alt="Logo"
+            className="logo-icon"
+          />
+          <h1 className="logo">INGRES</h1>
+        </div>
 
-/* Navbar */
-.navbar {
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(63, 63, 64, 0.9);
-  backdrop-filter: blur(12px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: -0.2rem 3rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-}
+        <div className="nav-links">
+          <a href="#features">Features</a>
+          <a href="#impact">Impact</a>
+          <a href="#deployment">Deployment</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <button className="btn-primary">Try INGRES</button>
+      </nav>
 
-.logo {
-  font-size: 2rem;
-  font-weight: 800;
-  color: #ccc6c2;
-  letter-spacing: 1px;
-}
-.logo-container {
-  display: flex;
-  align-items: center; /* vertically align image with text */
-  gap: 0.5rem;
-}
+      {/* Hero Section */}
+      <section className="hero" id="home">
+        <h2>
+          AI-Driven ChatBot for{" "}
+          <span className="highlight">Groundwater Resource Estimation</span>
+        </h2>
+        <p>
+          Revolutionizing water resource management through intelligent AI
+          conversations, real-time data analysis, and predictive modeling.
+        </p>
+        <div className="hero-buttons">
+          <button className="btn-primary" onClick={() => setChatOpen(true)}>
+            Start Conversation
+          </button>
+          <button className="btn-secondary">Learn More</button>
+        </div>
+      </section>
 
-.logo-icon {
-  height: 3em; /* match text height */
-  width: auto; /* keep aspect ratio */
-}
+      {/* Features Section */}
+      <section id="features" className="section">
+        <h2>
+          Advanced Features for <span className="highlight">Water Intelligence</span>
+        </h2>
+        <div className="features-grid">
+          {[
+            {
+              title: "AI-Powered Queries",
+              desc: "Natural language processing to understand complex groundwater questions.",
+              bg: "card-1",
+            },
+            {
+              title: "Real-Time Data Integration",
+              desc: "Live access to groundwater monitoring networks, satellite data, and sensors.",
+              bg: "card-2",
+            },
+            {
+              title: "Multilingual Support",
+              desc: "Communicate in 15+ languages with local measurement units.",
+              bg: "card-3",
+            },
+            {
+              title: "Interactive Visualizations",
+              desc: "Dynamic charts, maps, and 3D models to visualize aquifer systems.",
+              bg: "card-4",
+            },
+            {
+              title: "Predictive Analytics",
+              desc: "Forecast water availability, drought conditions, and optimal usage.",
+              bg: "card-5",
+            },
+            {
+              title: "Multi-User Collaboration",
+              desc: "Share insights, create reports, and collaborate with team members.",
+              bg: "card-6",
+            },
+          ].map((f, i) => (
+            <div key={i} className={`card ${f.bg}`}>
+              <h3>{f.title}</h3>
+              <p>{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
+      {/* Impact Section */}
+      <section id="impact" className="section">
+        <h2>
+          Transforming <span className="highlight">Water Management</span> Worldwide
+        </h2>
+        <p className="section-desc">
+          INGRES is making a measurable difference in water conservation,
+          environmental protection, and sustainable resource management.
+        </p>
+        <div className="impact-grid">
+          <div className="impact-card">
+            <h3 className="blue">2.5B</h3>
+            <p>Liters Saved</p>
+          </div>
+          <div className="impact-card">
+            <h3 className="green">340K</h3>
+            <p>Tons CO₂ Reduced</p>
+          </div>
+          <div className="impact-card">
+            <h3 className="purple">98.7%</h3>
+            <p>Accuracy Rate</p>
+          </div>
+        </div>
+      </section>
 
-.nav-links {
-  display: flex;
-  gap: 2rem;
-}
+      {/* Deployment Section */}
+      <section id="deployment" className="section">
+        <h2>
+          Serving Water Communities <span className="highlight">Everywhere</span>
+        </h2>
+        <div className="deployment-grid">
+          {[
+            { name: "North America", wells: 12450, savings: "45%" },
+            { name: "Europe", wells: 8760, savings: "38%" },
+            { name: "Asia Pacific", wells: 15320, savings: "52%" },
+            { name: "Africa", wells: 9880, savings: "41%" },
+          ].map((r, i) => (
+            <div key={i} className="card neutral-card">
+              <h3>{r.name}</h3>
+              <p>Active Wells: {r.wells}</p>
+              <p className="highlight">Water Savings: {r.savings}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-.nav-links a {
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  font-size: 1.05rem;
-  transition: 0.3s;
-}
+      {/* Footer */}
+      <footer id="contact" className="footer">
+        <h3>
+          Start Your <span className="highlight">Water Intelligence</span> Journey Today
+        </h3>
+        <p>
+          Join thousands of professionals who trust INGRES for sustainable water
+          management.
+        </p>
+        <button className="btn-primary" onClick={() => setChatOpen(true)}>
+          Start Free Conversation
+        </button>
+        <p className="copyright">
+          © 2025 INGRES. Trusted by water professionals worldwide.
+        </p>
+      </footer>
 
-.nav-links a:hover {
-  color: #f97316;
-}
-
-/* Buttons */
-.btn-primary {
-  background: #f97316;
-  border: none;
-  padding: 0.6rem 1.3rem;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-  color: white;
-  font-size: 1rem;
-}
-
-.btn-primary:hover {
-  background: #fb923c;
-  transform: scale(1.05);
-}
-
-.btn-secondary {
-  background: transparent;
-  border: 2px solid #f97316;
-  color: #f97316;
-  padding: 0.6rem 1.3rem;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-  font-size: 1rem;
-}
-
-.btn-secondary:hover {
-  background: #f97316;
-  color: white;
-  transform: scale(1.05);
-}
-
-/* Hero */
-/* Hero */
-.hero {
-  min-height: 85vh;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 2rem 1rem;
-  margin-top: -2rem;
-
-  /* Background with overlay + image */
-  background: 
-    linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)), 
-    url("/images/hero.jpg") no-repeat center center;
-  background-size: cover;
-  color: white;
-}
-
-
-
-
-
-.hero h2 {
-  font-size: 3rem;
-  font-weight: 800;
-  line-height: 1.2;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
-}
-
-.hero p {
-  margin: 1rem auto;
-  max-width: 850px;
-  color: #cbd5e1;
-  font-size: 1.25rem;
-  font-weight: 500;
-}
-
-.hero-buttons {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-/* Sections */
-.section {
-  min-height: 80vh;
-  padding: 2.5rem 2rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.section h2 {
-  font-size: 2.6rem;
-  margin-bottom: 1.2rem;
-  font-weight: 700;
-}
-
-.section-desc {
-  max-width: 800px;
-  margin: 0 auto 1.2rem auto;
-  color: #e2e8f0;
-}
-
-.highlight {
-  color: #f97316;
-  font-weight: bold;
-}
-
-/* Features */
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Always 3 per row */
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.card {
-  padding: 1.5rem;
-  border-radius: 16px;
-  color: white;
-  text-align: left;
-  transition: 0.4s ease;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-  backdrop-filter: blur(6px);
-}
-
-.card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.6);
-}
-
-.card h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 0.8rem;
-  text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
-}
-
-.card p {
-  font-size: 1.05rem;
-  color: #f8fafc;
-  line-height: 1.5;
-}
-
-/* Unique card backgrounds (with opacity) */
-.card-1 { background: linear-gradient(135deg, rgba(37,99,235,0.85), rgba(59,130,246,0.75)); }
-.card-2 { background: linear-gradient(135deg, rgba(22,163,74,0.85), rgba(34,197,94,0.75)); }
-.card-3 { background: linear-gradient(135deg, rgba(147,51,234,0.85), rgba(168,85,247,0.75)); }
-.card-4 { background: linear-gradient(135deg, rgba(220,38,38,0.85), rgba(239,68,68,0.75)); }
-.card-5 { background: linear-gradient(135deg, rgba(234,88,12,0.85), rgba(249,115,22,0.75)); }
-.card-6 { background: linear-gradient(135deg, rgba(8,145,178,0.85), rgba(6,182,212,0.75)); }
-
-.neutral-card {
-  background: rgba(15, 23, 42, 0.85);
-}
-
-/* Impact */
-.impact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
-
-.impact-card {
-  background: rgba(15, 23, 42, 0.9);
-  padding: 1.2rem;
-  border-radius: 14px;
-  transition: 0.3s;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
-}
-
-.impact-card:hover {
-  transform: translateY(-6px);
-}
-
-.impact-card h3 {
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-.blue { color: #3b82f6; }
-.green { color: #22c55e; }
-.purple { color: #a855f7; }
-
-/* Deployment */
-.deployment-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1rem;
-  max-width: 1000px;
-  margin: auto;
-}
-
-/* Footer */
-.footer {
-  background: linear-gradient(90deg, #0f172a, #1e293b, #0c4a6e);
-  padding: 2.5rem 2rem;
-  text-align: center;
-}
-
-.footer p {
-  margin: 0.6rem 0;
-  color: #cbd5e1;
-}
-
-.copyright {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: #94a3b8;
-}
-
-/* Chatbot */
-.chatbot {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #f8fafc;
-  color: #1e293b;
-  width: 340px;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.chatbot-header {
-  background: #1e40af; /* Deep Blue */
-  color: #e0f2fe;      /* Light Blue */
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: bold;
-}
-
-.chatbot-body {
-  padding: 1rem;
-  height: 200px;
-  overflow-y: auto;
-  font-size: 0.95rem;
-  color: #334155;
-  background: #f1f5f9;
-}
-
-.chatbot-input {
-  display: flex;
-  border-top: 1px solid #e5e7eb;
-}
-
-.chatbot-input input {
-  flex: 1;
-  border: none;
-  padding: 0.8rem;
-  outline: none;
-}
-
-.chatbot-input button {
-  border: none;
-  background: #1e40af;
-  color: #e0f2fe;
-  padding: 0 1.5rem;
-  cursor: pointer;
+      {/* ChatBot Popup */}
+      {chatOpen && (
+        <div className="chatbot">
+          <div className="chatbot-header">
+            <h3>INGRES ChatBot</h3>
+            <button onClick={() => setChatOpen(false)}>✖</button>
+          </div>
+          <div className="chatbot-body">
+            <p>👋 Hi! Ask me about groundwater levels, predictions, or analytics.</p>
+          </div>
+          <div className="chatbot-input">
+            <input type="text" placeholder="Type your message..." />
+            <button className="btn-primary">Send</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }
