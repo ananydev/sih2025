@@ -279,58 +279,83 @@ body, html, #root {
 }
 
 /* Chatbot */
-.chatbot {
+.chatbot-overlay {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #f8fafc;
-  color: #1e293b;
-  width: 340px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.7); /* blurred dark background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+/* Chatbot Modal Box */
+.chatbot-modal {
+  width: 700px;
+  max-width: 90%;
+  height: 500px;
+  background: #1e293b;
   border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.7);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  animation: fadeIn 0.3s ease;
 }
 
-.chatbot-header {
-  background: #1e40af; /* Deep Blue */
-  color: #e0f2fe;      /* Light Blue */
-  padding: 1rem;
+/* Header */
+.chatbot-modal .chatbot-header {
+  background: #1e40af;
+  color: #e0f2fe;
+  padding: 1rem 1.2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: bold;
 }
 
-.chatbot-body {
-  padding: 1rem;
-  height: 200px;
+/* Body */
+.chatbot-modal .chatbot-body {
+  flex: 1;
+  padding: 1rem 1.2rem;
   overflow-y: auto;
-  font-size: 0.95rem;
-  color: #334155;
-  background: #f1f5f9;
+  font-size: 1rem;
+  color: #e2e8f0;
+  background: #2b4175;
 }
 
-.chatbot-input {
+/* Input */
+.chatbot-modal .chatbot-input {
   display: flex;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid #334155;
 }
 
-.chatbot-input input {
+.chatbot-modal .chatbot-input input {
   flex: 1;
   border: none;
-  padding: 0.8rem;
+  padding: 0.8rem 1rem;
   outline: none;
+  background: #5881c4;
+  color: #e0f2fe;
 }
 
-.chatbot-input button {
+.chatbot-modal .chatbot-input button {
   border: none;
   background: #1e40af;
   color: #e0f2fe;
   padding: 0 1.5rem;
   cursor: pointer;
 }
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* About Section Override */
 /* About Section Enhancements */
 
