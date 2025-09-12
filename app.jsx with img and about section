@@ -22,10 +22,11 @@ export default function App() {
           <a href="#about">About</a>
           <a href="#features">Features</a>
           <a href="#impact">Impact</a>
-          {/* <a href="#deployment">Deployment</a> */}
           <a href="#contact">Contact</a>
         </div>
-        <button className="btn-primary">Try INGRES</button>
+        <button className="btn-primary" onClick={() => setChatOpen(true)}>
+          Try INGRES
+        </button>
       </nav>
 
       {/* Hero Section */}
@@ -42,7 +43,7 @@ export default function App() {
           <button className="btn-primary" onClick={() => setChatOpen(true)}>
             Start Conversation
           </button>
-          <button className="btn-secondary">Learn More</button>
+          <button className="btn-secondary">View Dashboard</button>
         </div>
       </section>
 
@@ -138,27 +139,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Deployment Section
-      <section id="deployment" className="section">
-        <h2>
-          Serving Water Communities <span className="highlight">Everywhere</span>
-        </h2>
-        <div className="deployment-grid">
-          {[
-            { name: "North America", wells: 12450, savings: "45%" },
-            { name: "Europe", wells: 8760, savings: "38%" },
-            { name: "Asia Pacific", wells: 15320, savings: "52%" },
-            { name: "Africa", wells: 9880, savings: "41%" },
-          ].map((r, i) => (
-            <div key={i} className="card neutral-card">
-              <h3>{r.name}</h3>
-              <p>Active Wells: {r.wells}</p>
-              <p className="highlight">Water Savings: {r.savings}</p>
-            </div>
-          ))}
-        </div>
-      </section> */}
-
       {/* Footer */}
       <footer id="contact" className="footer">
         <h3>
@@ -176,19 +156,21 @@ export default function App() {
         </p>
       </footer>
 
-      {/* ChatBot Popup */}
+      {/* ChatBot Modal */}
       {chatOpen && (
-        <div className="chatbot">
-          <div className="chatbot-header">
-            <h3>INGRES ChatBot</h3>
-            <button onClick={() => setChatOpen(false)}>✖</button>
-          </div>
-          <div className="chatbot-body">
-            <p>👋 Hi! Ask me about groundwater levels, predictions, or analytics.</p>
-          </div>
-          <div className="chatbot-input">
-            <input type="text" placeholder="Type your message..." />
-            <button className="btn-primary">Send</button>
+        <div className="chatbot-overlay">
+          <div className="chatbot-modal">
+            <div className="chatbot-header">
+              <h3>INGRES AI Assistant</h3>
+              <button onClick={() => setChatOpen(false)}>✖</button>
+            </div>
+            <div className="chatbot-body">
+              <p>👋 Hi! Ask me about groundwater levels, predictions, or analytics.</p>
+            </div>
+            <div className="chatbot-input">
+              <input type="text" placeholder="Type your message..." />
+              <button className="btn-primary">Send</button>
+            </div>
           </div>
         </div>
       )}
