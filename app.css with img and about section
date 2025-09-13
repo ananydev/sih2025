@@ -295,8 +295,8 @@ body, html, #root {
 
 /* Chatbot Modal Box */
 .chatbot-modal {
-  width: 800px;
-  max-width: 90%;
+  width: 1000px;      /* Increased width from 800px to 1000px */
+  max-width: 95%;     /* Allows responsive shrinking on small screens */
   height: 600px;
   background: linear-gradient(135deg, #1e40af, #f97316);
   border-radius: 20px;
@@ -307,6 +307,7 @@ body, html, #root {
   animation: fadeIn 0.4s ease;
   border: 2px solid #fb923c;
 }
+
 
 /* Chatbot Header */
 .chatbot-modal .chatbot-header {
@@ -379,7 +380,7 @@ body, html, #root {
   border: none;
   padding: 0.8rem 1rem;
   outline: none;
-  background: rgba(249, 115, 22, 0.9);
+  background: rgba(230, 224, 220, 0.9);
   color: #ffffff;
   font-size: 1rem;
   border-radius: 10px;
